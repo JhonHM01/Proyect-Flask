@@ -1,9 +1,11 @@
 from flask import Flask
+from waitress import serve
+
 app = Flask(__name__)
 
-@app.route('/')
-def hello_geek():
-  return '<h1>Jhon Huamani</h1>'
+@app.route("/")
+def hello_world():
+    return "<p>Hello World</p>"
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    serve(app, host="0.0.0.0", port=8080)
